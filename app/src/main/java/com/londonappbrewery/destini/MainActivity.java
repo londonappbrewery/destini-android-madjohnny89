@@ -13,7 +13,7 @@ TextView StoryTextView ;
 Button ButtonTop;
 Button ButtonBottom;
 int storyTextId [] = {R.string.T1_Story,R.string.T2_Story,R.string.T3_Story};
-int mIndex;
+int mIndex=1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ StoryTextView.setText(storyTextId[0]);
 ButtonTop.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-if (mIndex==0) {
+if (mIndex==1) {
     StoryTextView.setText(storyTextId[2]);
     ButtonTop.setText(R.string.T3_Ans1);
     ButtonBottom.setText(R.string.T3_Ans2);
@@ -64,14 +64,17 @@ ButtonBottom.setOnClickListener(new View.OnClickListener() {
             StoryTextView.setText(storyTextId[1]);
             ButtonTop.setText(R.string.T2_Ans1);
             ButtonBottom.setText(R.string.T2_Ans2);
-            mIndex=mIndex+1;
+            mIndex=3;
         }
-        else  {
+        else if (mIndex==2) {
+            StoryTextView.setText(R.string.T5_End);
+            ButtonTop.setVisibility(View.INVISIBLE);
+            ButtonBottom.setVisibility(View.INVISIBLE);
+
+
+            }
+            else {
             t2story();
-
-
-
-
         }
 
 
